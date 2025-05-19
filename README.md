@@ -13,8 +13,8 @@ A responsive frontend clone of the Spotify web player interface, developed using
 
 - HTML
 - CSS
-- JavaScript (for dynamic overflow animation)
-- Fontawesome for icons
+- JavaScript
+- fontawesome
 
 ## Getting Started
 
