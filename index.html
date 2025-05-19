@@ -15,59 +15,97 @@
     <div class="main">
         <div class="sidebar">
             <div class="nav">
-                <div class="nav-option" style="opacity: 1;">
+                <div class="nav-option" style="opacity: 1;" data-tooltip="Home (Ctrl+H)">
                     <i class="fa-solid fa-house"></i>
                     <a href="#">Home</a>
                 </div>
-                <div class="nav-option">
+                <div class="nav-option" data-tooltip="Search (Ctrl+S)">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <a href="#">Search</a>
                 </div>
             </div>
             <div class="library">
                 <div class="options">
-                    <div class="lib-option nav-option">
+                    <div class="lib-option nav-option" data-tooltip="Your Library (Ctrl+L)">
                         <img src="./assets/library_icon.png">
                         <a href="#">Your Library</a>
                     </div>
                     <div class="icons">
-                        <i class="fa-solid fa-plus"></i>
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <i class="fa-solid fa-plus" data-tooltip="Create playlist"></i>
+                        <i class="fa-solid fa-arrow-right" data-tooltip="Show more"></i>
                     </div>
                 </div>
                 <div class="lib-box">
                     <div class="box">
                         <p class="box-p1">Create your first playlist</p>
                         <p class="box-p2">It's easy we'll help you</p>
-                        <button class="badge">Create playlist</button>
+                        <button class="badge btn-click" onclick="this.classList.add('ripple'); setTimeout(() => this.classList.remove('ripple'), 600)">Create playlist</button>
                     </div>
                     <div class="box">
                         <p class="box-p1">Let's find some podcasts to follow</p>
                         <p class="box-p2">We'll keep you updated on new episodes</p>
-                        <button class="badge">Browse podcasts</button>
+                        <button class="badge btn-click" onclick="this.classList.add('ripple'); setTimeout(() => this.classList.remove('ripple'), 600)">Browse podcasts</button>
+                    </div>
+                </div>
+                
+                <div class="playlist-container" style="margin-top: 20px;">
+                    <h3>Playlists</h3>
+                    <div class="playlist-item" draggable="true">
+                        <img src="./assets/card1img.jpeg" style="width: 40px; height: 40px; margin-right: 10px; border-radius: 4px;">
+                        <div>
+                            <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">My Playlist #1</p>
+                            <p style="margin: 0; font-size: 0.8rem; opacity: 0.7;">12 songs</p>
+                        </div>
+                    </div>
+                    <div class="playlist-item" draggable="true">
+                        <img src="./assets/card3img.jpeg" style="width: 40px; height: 40px; margin-right: 10px; border-radius: 4px;">
+                        <div>
+                            <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Chill Vibes</p>
+                            <p style="margin: 0; font-size: 0.8rem; opacity: 0.7;">18 songs</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="main-content">
+        <div class="main-content page-transition">
             <div class="sticky-nav">
                 <div class="sticky-nav-icons">
                     <img src="./assets/backward_icon.png">
                     <img src="./assets/forward_icon.png" class="hide">
                 </div>
+                <div class="search-bar-container" style="flex-grow: 1; max-width: 400px; margin-left: 20px;">
+                    <input type="text" class="search-input" placeholder="What do you want to listen to?">
+                </div>
                 <div class="sticky-nav-options">
                     <button class="badge nav-item hide">Explore Premium</button>
-                    <button class="badge nav-item dark-badge">
+                    <button class="badge nav-item dark-badge btn-click" onclick="this.classList.add('ripple'); setTimeout(() => this.classList.remove('ripple'), 600)">
                         <i class="fa-regular fa-circle-down" style="margin-right: 5px;"></i>
                         Install App
                     </button>
+                    <div class="theme-toggle" onclick="document.body.classList.toggle('light-theme')">
+                        <i class="fa-solid fa-moon theme-icon"></i>
+                    </div>
+                    <div class="user-profile">
                     <i class="fa-regular fa-user nav-item"></i>
+                        <div class="profile-menu">
+                            <div class="profile-item">Account</div>
+                            <div class="profile-item">Profile</div>
+                            <div class="profile-item">Settings</div>
+                            <div class="profile-item">Log out</div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <h2>Recently Played</h2>
             <div class="cards-container">
                 <div class="card">
                     <img src="./assets/card1img.jpeg" class="card-img">
+                    <div class="play-button">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                    <div class="add-to-playlist" data-tooltip="Add to playlist">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
                     <p class="card-title">Top 50 - Global</p>
                     <p class="card-info">Your daily updates of the most played tracks...</p>
                 </div>
@@ -76,27 +114,57 @@
             <div class="cards-container">
                 <div class="card">
                     <img src="./assets/card2img.jpeg" class="card-img">
-                    <p class="card-title">Top 50 - Global</p>
+                    <div class="play-button">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                    <div class="add-to-playlist" data-tooltip="Add to playlist">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <p class="card-title">Mahiye Jinna Sohna</p>
                     <p class="card-info">Your daily updates of the most played tracks...</p>
                 </div>
-                <div class="card">
+                <div class="card now-playing">
                     <img src="./assets/card3img.jpeg" class="card-img">
-                    <p class="card-title">Top 50 - Global</p>
+                    <div class="play-button">
+                        <i class="fa-solid fa-pause"></i>
+                    </div>
+                    <div class="add-to-playlist" data-tooltip="Add to playlist">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <p class="card-title">Mere Paas Tum Ho</p>
                     <p class="card-info">Your daily updates of the most played tracks...</p>
                 </div>
                 <div class="card">
                     <img src="./assets/card4img.jpeg" class="card-img">
-                    <p class="card-title">Top 50 - Global</p>
+                    <div class="play-button">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                    <div class="add-to-playlist" data-tooltip="Add to playlist">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <p class="card-title">Arabic Kuthu - Halamithi Habibo</p>
                     <p class="card-info">Your daily updates of the most played tracks...</p>
                 </div>
                 <div class="card">
                     <img src="./assets/card3img.jpeg" class="card-img">
-                    <p class="card-title">Top 50 - Global</p>
+                    <div class="play-button">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                    <div class="add-to-playlist" data-tooltip="Add to playlist">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <p class="card-title">Mere Paas Tum Ho - Lofi</p>
                     <p class="card-info">Your daily updates of the most played tracks...</p>
                 </div>
                 <div class="card">
                     <img src="./assets/card4img.jpeg" class="card-img">
-                    <p class="card-title">Top 50 - Global</p>
+                    <div class="play-button">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                    <div class="add-to-playlist" data-tooltip="Add to playlist">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <p class="card-title">Beast Mode</p>
                     <p class="card-info">Your daily updates of the most played tracks...</p>
                 </div>
             </div>
@@ -104,16 +172,34 @@
             <div class="cards-container">
                 <div class="card">
                     <img src="./assets/card5img.jpeg" class="card-img">
+                    <div class="play-button">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                    <div class="add-to-playlist" data-tooltip="Add to playlist">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
                     <p class="card-title">Top 50 - Global</p>
                     <p class="card-info">Your daily updates of the most played tracks...</p>
                 </div>
                 <div class="card">
                     <img src="./assets/card6img.jpeg" class="card-img">
+                    <div class="play-button">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                    <div class="add-to-playlist" data-tooltip="Add to playlist">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
                     <p class="card-title">Top Songs - India</p>
                     <p class="card-info">Your daily updates of the most played tracks...</p>
                 </div>
                 <div class="card">
                     <img src="./assets/card1img.jpeg" class="card-img">
+                    <div class="play-button">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                    <div class="add-to-playlist" data-tooltip="Add to playlist">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
                     <p class="card-title">Top 50 - Global</p>
                     <p class="card-info">Your daily updates of the most played tracks...</p>
                 </div>
@@ -124,29 +210,50 @@
         </div>
         <div class="music-player">
             <div class="album">
-                <img src="./assets/card2img.jpeg" class="album-cover">
+                <img src="./assets/card3img.jpeg" class="album-cover">
                 <div class="album-info">
                     <p class="album-title">Mahiye Jinna Sohna</p>
                     <p class="album-artist">Darshan Raval</p>
                 </div>
-                <i class="fa-solid fa-circle-check album-check album-check"></i>
+                <i class="fa-regular fa-heart" style="margin-right: 10px; cursor: pointer; transition: all 0.3s;" onmouseover="this.classList.add('fa-solid'); this.style.color='#1db954'" onmouseout="this.classList.remove('fa-solid'); this.style.color=''"></i>
+                <i class="fa-solid fa-circle-check album-check"></i>
             </div>
             <div class="player">
                 <div class="player-controls">
-                    <img src="./assets/player_icon1.png" class="player-control-icon">
-                    <img src="./assets/player_icon2.png" class="player-control-icon">
-                    <img src="./assets/player_icon3.png" class="player-control-icon" style="opacity: 1; height: 2rem;">
-                    <img src="./assets/player_icon4.png" class="player-control-icon">
-                    <img src="./assets/player_icon5.png" class="player-control-icon">
+                    <img src="./assets/player_icon1.png" class="player-control-icon" data-tooltip="Shuffle">
+                    <img src="./assets/player_icon2.png" class="player-control-icon" data-tooltip="Previous">
+                    <img src="./assets/player_icon3.png" class="player-control-icon btn-click" style="opacity: 1; height: 2rem;" data-tooltip="Play/Pause (Space)" onclick="this.classList.add('ripple'); setTimeout(() => this.classList.remove('ripple'), 600)">
+                    <img src="./assets/player_icon4.png" class="player-control-icon" data-tooltip="Next">
+                    <img src="./assets/player_icon5.png" class="player-control-icon" data-tooltip="Repeat">
                 </div>
                 <div class="playback-bar">
-                    <span class="current-time">00:00</span>
-                    <input type="range" min="0" max="100" step="1" class="progress-bar">
+                    <span class="current-time">1:20</span>
+                    <div class="progress-bar-container">
+                        <input type="range" min="0" max="100" value="40" step="1" class="progress-bar" style="--progress: 40%">
+                        <div class="current-progress" style="width: 40%"></div>
+                    </div>
                     <span class="total-time">3:33</span>
                 </div>
             </div>
-            <div class="controls"></div>
+            <div class="controls">
+                <div class="sound-controls">
+                    <i class="fa-solid fa-list" style="margin-right: 15px; opacity: 0.7; cursor: pointer; width: 20px; text-align: center;" data-tooltip="Queue"></i>
+                    <i class="fa-solid fa-microphone-lines microphone-icon" data-tooltip="Lyrics"></i>
+                    <i class="fa-solid fa-desktop" style="margin-right: 15px; opacity: 0.7; cursor: pointer; width: 20px; text-align: center;" data-tooltip="Connect to a device"></i>
+                    <div class="volume-container">
+                        <i class="fa-solid fa-volume-high volume-icon" data-tooltip="Mute (M)"></i>
+                        <input type="range" min="0" max="100" value="80" step="1" class="volume-bar" style="--volume: 80%">
+                    </div>
+                    <i class="fa-solid fa-expand full-screen-icon" data-tooltip="Full screen (F)"></i>
+                </div>
+            </div>
         </div>
+    </div>
+    <div class="keyboard-shortcuts" style="display: none;">
+        <div class="keyboard-shortcut">Space</div> - Play/Pause
+        <div class="keyboard-shortcut">Ctrl+Left</div> - Previous Track
+        <div class="keyboard-shortcut">Ctrl+Right</div> - Next Track
+        <div class="keyboard-shortcut">M</div> - Mute/Unmute
     </div>
     <script src="script.js"></script>
 </body>

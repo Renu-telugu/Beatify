@@ -14,6 +14,7 @@ A responsive frontend clone of the Spotify web player interface, developed using
 - HTML
 - CSS
 - JavaScript (for dynamic overflow animation)
+- Fontawesome for icons
 
 ## Getting Started
 
@@ -22,4 +23,5 @@ To view the project locally:
 1. Clone the repository:
    ```bash
    git clone https://github.com/Renu-telugu/spotify-clone.git
+   ```
 2. Open the project folder and launch the index.html file in any web browser.
