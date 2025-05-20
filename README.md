@@ -1,4 +1,4 @@
-# Spotify Clone 🎧
+# Beatify - ( Spotify Clone ) 🎧
 
 A responsive frontend clone of the Spotify web player interface, developed using HTML and CSS with minimal JavaScript for UI enhancement.
 
